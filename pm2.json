@@ -1,0 +1,16 @@
+{
+  "apps": [{
+    "name": "Github-Helper",
+    "script": "www/production.js",
+    "cwd": "/Users/wangfulin/Github//Users/wangfulin/Github/Github-Helper",
+    "exec_mode": "cluster",
+    "instances": 0,
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}
