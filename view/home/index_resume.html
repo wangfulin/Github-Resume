@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New ThinkJS Application</title>
+<link type="text/css" rel="stylesheet" href="/static/css/resume.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- 简历开始 -->
+    <div class="resume">
+      <!-- 基本信息开始 -->
+      <div class="basic-info">
+        <div class="personal-profile">
+          <ul>
+            <li>用户名: <span class="username"><%=user.name %></span></li>
+            <li>公司: <span class="company"><%=user.company %></span></li>
+            <li>个人博客: <span class="blog"><%=user.blog %></span></li>
+            <li>加入时间: <span class="joinTime"><%=user.joinTime %></span></li>
+            <li>关注你的人数: <span class="followers"><%=user.followers %></span></li>
+            <li>关注了的人数: <span class="following"><%=user.following %></span></li>
+          </ul>
+        </div>
+        <div class="pseronal-avatar">
+          <img src=<%=user.avatarPic %> />
+        </div>
+      </div>
+      <!-- 基本信息结束 -->
+
+      <!-- 项目信息开始 -->
+      <div class="repositories">
+        <%=JSON.stringify(repos) %>
+        <div class="repository">
+
+        </div>
+        <div class="repository">
+
+        </div>
+        <div class="repository">
+
+        </div>
+      </div>
+      <!-- 项目信息结束 -->
+    </div>
+  </div>
+  <!-- 简历结束 -->
+  <script src="/static/js/resume.js"></script>
+</body>
+</html>

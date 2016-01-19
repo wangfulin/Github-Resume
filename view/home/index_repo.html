@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Repository</title>
+<style>
+
+</style>
+</head>
+<body>
+  <input type="input" value="请输入Github用户名" name="username" /><button>生成Github简历</button>
+  <div class="resume">
+    <div class="basic-info">
+      <div class="personal-profile">
+        <ul>
+          <li>用户名: <span class="username"><%=user.name %></span></li>
+          <li>公司: <span class="company"><%=user.company %></span></li>
+          <li>个人网站: <span class="blog"><%=user.blog %></span></li>
+          <li>加入时间: <span class="joinTime"><%=user.joinTime %></span></li>
+          <li>关注你的人数: <span class="followers"><%=user.followers %></span></li>
+          <li>关注了的人数: <span class="following"><%=user.following %></span></li>
+        </ul>
+      </div>
+      <div class="pseronal-avator">
+        <img src=<%=user.avatarPic %> />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
