@@ -21,7 +21,7 @@
             <li>关注了的人数: <span class="following"><%=user.following %></span></li>
           </ul>
         </div>
-        <div class="pseronal-avatar">
+        <div class="personal-avatar">
           <img src=<%=user.avatarPic %> />
         </div>
       </div>
@@ -29,16 +29,17 @@
 
       <!-- 项目信息开始 -->
       <div class="repositories">
-        <%=JSON.stringify(repos) %>
-        <div class="repository">
+        <% popularRepos.forEach(function(repository){ %>
+            <div class="repository">
+              <p>
+                <h3><%=repository.name %></h3>
+                <span>star: </span><span><%=repository.stargazers_count %></span>
+                <span>watcher: </span><span><%=repository.watchers_count %></span>
+                <span>fork: </span><span><%=repository.forks_count %></span>
+              </p>
 
-        </div>
-        <div class="repository">
-
-        </div>
-        <div class="repository">
-
-        </div>
+            </div>
+        <% }); %>
       </div>
       <!-- 项目信息结束 -->
     </div>

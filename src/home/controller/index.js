@@ -34,12 +34,7 @@ export default class extends Base {
       console.log('fail');
     });
 
-    await this.getUserRepos(username).then(function(repos){
-      _self.assign('repos', repos);
-      // console.log(repos);
-    }, function(err){
-      console.log('error');
-    });
+    await this.getPopularRepositories(username, 3);
 
     return this.display();
   }

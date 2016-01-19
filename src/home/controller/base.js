@@ -17,10 +17,36 @@ export default class extends think.controller.base {
 	}
    // 获取用户最 contributional 的repositories
    async getPopularRepositories(username, max){
-      this.getUserRepos(username).then(function(repos){
-         
-      },function(err){
+      var _self = this;
+      return this.getUserRepos(username).then(function(repos){
+         repos.sort(function(prev, next){
+            let prev_stargazers_count = prev.stargazers_count;
+            let prev_watchers_count = prev.watchers_count;
+            let prev_forks_count = prev.forks_count;
 
+            let next_stargazers_count = next.stargazers_count;
+            let next_watchers_count = next.watchers_count;
+            let next_forks_count = next.forks_count;
+
+            var prev_count = prev_stargazers_count * 1.0 + prev_watchers_count * 1.2 + prev_forks_count * 1.4;
+            var next_count = next_stargazers_count * 1.0 + next_watchers_count * 1.2 + next.forks_count * 1.4;
+
+            return next_count - prev_count;
+         });
+         var res = [];
+         console.log(repos.length > max);
+         if(repos.length > max){
+            for(let i=0; i<max; i++){
+               res[i] = repos[i];
+            }
+            _self.assign('popularRepos', res);
+         }else{
+            _self.assign('popularRepos', repos);
+         }
+         console.log(_self.assign('popularRepos'));
+
+      },function(err){
+         console.log(err);
       });
    }
 
@@ -78,7 +104,6 @@ export default class extends think.controller.base {
    				if(err){
    					reject(err);
    				}else{
-                  console.log(user);
    					resolve(user);
    				}
    			})
