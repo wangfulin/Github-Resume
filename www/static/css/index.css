@@ -1,0 +1,28 @@
+form{
+	width:300px;
+	margin:auto;
+	margin-top:230px;
+}
+.field{
+	display:block;
+	width:280px;
+	height:42px;
+	border-radius:5px;
+	outline:none;
+	border:1px solid #0767c8;
+	margin-bottom:30px;
+	font-size:16px;
+}
+.subBtn{
+	display:inline-block;
+	width:280px;
+	height:42px;
+	outline:none;
+	border:none;
+	line-height:32px;
+	vertical-align:middle;
+	border-radius:5px;
+	color:white;
+	font-size:18px;
+	background-color:#0767c8;
+}

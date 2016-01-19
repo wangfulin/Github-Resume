@@ -2,15 +2,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New ThinkJS Application</title>
-<link type="text/css" rel="stylesheet" href="/static/css/resume.css" />
+<title><%=user.name %>的个人简历</title>
+<link type="text/css" rel="stylesheet" href="/static/css/resume_basic.css" />
 </head>
 <body>
   <div class="container">
     <!-- 简历开始 -->
     <div class="resume">
+      <h1 class="title"><%=user.name %>的个人简历</h1>
       <!-- 基本信息开始 -->
       <div class="basic-info">
+        <h2 class="basic-title category-title">基本信息</h2>
         <div class="personal-profile">
           <ul>
             <li>用户名: <span class="username"><%=user.name %></span></li>
@@ -29,15 +31,19 @@
 
       <!-- 项目信息开始 -->
       <div class="repositories">
+        <h2 class="repository-title category-title">项目信息</h2>
         <% popularRepos.forEach(function(repository){ %>
             <div class="repository">
               <p>
-                <h3><%=repository.name %></h3>
+                <h3><a href=<%=repository.html_url %> ><%=repository.name %></a></h3>
+                <span>size: </span><span><%=repository.size %> k</span>
                 <span>star: </span><span><%=repository.stargazers_count %></span>
                 <span>watcher: </span><span><%=repository.watchers_count %></span>
                 <span>fork: </span><span><%=repository.forks_count %></span>
               </p>
-
+              <p>
+                <%=repository.description %>
+              </p>
             </div>
         <% }); %>
       </div>
@@ -45,6 +51,6 @@
     </div>
   </div>
   <!-- 简历结束 -->
-  <script src="/static/js/resume.js"></script>
+  <script src="/static/js/resume_basic.js"></script>
 </body>
 </html>
