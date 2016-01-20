@@ -45,9 +45,9 @@
                   <li><span class="repo-info octicon octicon-git-commit">&nbsp;commits: </span><span><%=commitsCountArr[index] %></span></li>
                 </ul>
               </p>
-              <p>
-                <%=repository.description %>
-              </p>
+              <h4>
+                <%=repository.description? repository.description : 'This repository has no description' %>
+              </h4>
             </div>
         <% }); %>
       </div>

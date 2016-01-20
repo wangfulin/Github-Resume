@@ -126,3 +126,11 @@ ul.repo-info-list li span:last-child{
 	border:1px solid #ccc;
 	border-left:none;
 }
+.repository h4{
+	border:1px solid #ccc;
+	background-color:#ddd;
+	height:80px;
+	border-radius:5px;
+	padding-left:10px;
+	padding-top:6px;
+}
