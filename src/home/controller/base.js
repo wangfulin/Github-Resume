@@ -1,9 +1,10 @@
 'use strict';
 import Github from 'github-api'
+import request from 'request'
+import events from 'events'
 
 export default class extends think.controller.base {
 
-   // use OAuth
 	createGithub(){
       if(!this.assign('github')){
          this.assign({
@@ -15,7 +16,53 @@ export default class extends think.controller.base {
          });
       }
 	}
-   // 获取用户最 contributional 的repositories
+
+   // 获取某个用户某个仓库提交的commits个数
+   async getRepoCommitsCount(username){
+      let _self = this;
+      let EventEmitter = events.EventEmitter;
+
+      let body = new EventEmitter();
+
+      // let commitsCountPromise = new Promise(function(){
+      //    this.http.success(function(){
+      //       resolve()
+      //    });
+      // });
+      // console.log(think.http.url);
+      // console.log(think.http.startTime);
+      let popularRepos = this.assign('popularRepos');
+      let i = 0;
+      let commitsCountArr = [];
+
+      let commitsCountPromise = new Promise(
+         function(resolve, reject){
+            popularRepos.forEach(function(repo){
+               request({
+                  'uri': 'https://api.github.com/repos/' + username + '/' + repo.name + '/commits',
+                  'method': 'get',
+                  'headers': {
+                   'User-Agent': 'request'
+                  }
+               }, function(err, res, commits){
+                  if(err){
+                     reject();
+                  }
+                  commitsCountArr.push(JSON.parse(commits).length);
+                  i++;
+                  if(i === 3){
+                     _self.assign('commitsCountArr', commitsCountArr);
+                     resolve();
+                  }
+               });
+            });
+         });
+
+      return commitsCountPromise;
+   }
+
+   // 获取用户最 popular 的repositories
+   // star 的权重是 1，watcher 的权重是 1.2，fork 的权重是 1.4
    async getPopularRepositories(username, max){
       var _self = this;
       return this.getUserRepos(username).then(function(repos){
@@ -34,7 +81,6 @@ export default class extends think.controller.base {
             return next_count - prev_count;
          });
          var res = [];
-         console.log(repos.length > max);
          if(repos.length > max){
             for(let i=0; i<max; i++){
                res[i] = repos[i];
@@ -43,8 +89,6 @@ export default class extends think.controller.base {
          }else{
             _self.assign('popularRepos', repos);
          }
-         console.log(_self.assign('popularRepos'));
-
       },function(err){
          console.log(err);
       });
@@ -60,6 +104,7 @@ export default class extends think.controller.base {
 
    }
 
+   // 获取用户的所有仓库信息
    async getUserRepos(username){
       this.createGithub();
       let github = this.assign('github');
@@ -77,6 +122,7 @@ export default class extends think.controller.base {
       return reposPromise;
    }
 
+   // 获取仓库信息
    async getRepoInfo(username, reponame){
          this.createGithub();
    		let github = this.assign('github');
@@ -94,6 +140,7 @@ export default class extends think.controller.base {
    		return repoPromise;
    	}
 
+   // 获取用户信息
    async getUserInfo(username){
          this.createGithub();
    	   let github = this.assign('github');
@@ -111,6 +158,7 @@ export default class extends think.controller.base {
    		return userPromise;
    }
 
+   // 根据参数搜索github
    async searchGithub(opts){
    	let github = this.assign('github');
    	let search;

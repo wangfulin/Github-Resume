@@ -33,8 +33,9 @@ export default class extends Base {
     }, function(err){
       console.log('fail');
     });
-
     await this.getPopularRepositories(username, 3);
+
+    await this.getRepoCommitsCount(username);
 
     return this.display();
   }

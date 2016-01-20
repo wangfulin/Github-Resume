@@ -1,13 +1,23 @@
+*{
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
 html,body{
 	margin:0;
 	padding:0;
 	width:100%;
 	height:auto;
 }
+a{
+	color:black;
+}
+a:hover{
+	color:#0767c8;
+}
 .container{
 	width:82%;
-	max-width:760px;
-	min-width:600px;
+	max-width:820px;
+	min-width:740px;
 	height:auto;
 	margin:auto;
 }
@@ -59,6 +69,9 @@ html,body{
 	float:left;
 	height:180px;
 }
+.personal-profile .info-item{
+	font-weight:bold;
+}
 .personal-profile ul{
 	list-style:none;
 }
@@ -79,4 +92,37 @@ html,body{
 }
 .repositories{
 	position:relative;
+}
+ul.repo-info-list{
+	list-style:none;
+	position:relative;
+	clear:both;
+	overflow:hidden;
+	margin:0px;
+	padding:0px;
+}
+ul.repo-info-list li{
+	float:left;
+	padding-right:30px;
+}
+ul.repo-info-list li span:first-child{
+	border-bottom-left-radius:5px;
+	border-top-left-radius:5px;
+	background-color:#ddd;
+	padding:0px 10px;
+	font-size:16px;
+	line-height:38px;
+	border:1px solid #ccc;
+}
+ul.repo-info-list li span:last-child{
+	border-bottom-right-radius:5px;
+	border-top-right-radius:5px;
+	padding:10px 5px;
+	font-size:16px;
+	line-height:38px;
+	background-color:white;
+	color:#0767c8;
+	font-weight:bold;
+	border:1px solid #ccc;
+	border-left:none;
 }

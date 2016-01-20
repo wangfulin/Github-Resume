@@ -2,25 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%=user.name %>的个人简历</title>
+<title><%=user.name %>的Github简历</title>
 <link type="text/css" rel="stylesheet" href="/static/css/resume_basic.css" />
+<link type="text/css" rel="stylesheet" href="/static/css/octicons/octicons.css" />
 </head>
 <body>
   <div class="container">
     <!-- 简历开始 -->
     <div class="resume">
-      <h1 class="title"><%=user.name %>的个人简历</h1>
+      <h1 class="title"><%=user.name %>的Github简历</h1>
       <!-- 基本信息开始 -->
       <div class="basic-info">
         <h2 class="basic-title category-title">基本信息</h2>
         <div class="personal-profile">
           <ul>
-            <li>用户名: <span class="username"><%=user.name %></span></li>
-            <li>公司: <span class="company"><%=user.company %></span></li>
-            <li>个人博客: <span class="blog"><%=user.blog %></span></li>
-            <li>加入时间: <span class="joinTime"><%=user.joinTime %></span></li>
-            <li>关注你的人数: <span class="followers"><%=user.followers %></span></li>
-            <li>关注了的人数: <span class="following"><%=user.following %></span></li>
+            <li><span class="info-item">用户名:</span> <span class="username"><%=user.name %></span></li>
+            <li><span class="info-item">公司:</span> <span class="company"><%=user.company %></span></li>
+            <li><span class="info-item">个人博客: </span><span class="blog"><a href=<%=user.blog %> ><%=user.blog %></a></span></li>
+            <li><span class="info-item">加入时间: </span><span class="joinTime"><%=user.joinTime.replace(/T|Z/g, ' ') %></span></li>
+            <li><span class="info-item">关注你的人数: </span><span class="followers"><%=user.followers %></span></li>
+            <li><span class="info-item">关注了的人数: </span><span class="following"><%=user.following %></span></li>
           </ul>
         </div>
         <div class="personal-avatar">
@@ -32,14 +33,17 @@
       <!-- 项目信息开始 -->
       <div class="repositories">
         <h2 class="repository-title category-title">项目信息</h2>
-        <% popularRepos.forEach(function(repository){ %>
+        <% popularRepos.forEach(function(repository, index){ %>
             <div class="repository">
               <p>
                 <h3><a href=<%=repository.html_url %> ><%=repository.name %></a></h3>
-                <span>size: </span><span><%=repository.size %> k</span>
-                <span>star: </span><span><%=repository.stargazers_count %></span>
-                <span>watcher: </span><span><%=repository.watchers_count %></span>
-                <span>fork: </span><span><%=repository.forks_count %></span>
+                <ul class="repo-info-list">
+                  <li><span class="repo-info octicon octicon-text-size">&nbsp;size: </span><span><%=repository.size %>k</span></li>
+                  <li><span class="repo-info octicon octicon-star-add">&nbsp;star: </span><span><%=repository.stargazers_count %></span></li>
+                  <li><span class="repo-info octicon octicon-eye-unwatch">&nbsp;watcher: </span><span><%=repository.watchers_count %></span></li>
+                  <li><span class="repo-info octicon octicon-repo-forked">&nbsp;fork: </span><span><%=repository.forks_count %></span></li>
+                  <li><span class="repo-info octicon octicon-git-commit">&nbsp;commits: </span><span><%=commitsCountArr[index] %></span></li>
+                </ul>
               </p>
               <p>
                 <%=repository.description %>

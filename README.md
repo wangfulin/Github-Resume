@@ -1,21 +1,20 @@
-application created by [ThinkJS](http://www.thinkjs.org)
+## 使用的框架
 
-## install dependencies
+[Thinkjs](https://github.com/75team/thinkjs)
 
-```
-npm install
-```
+## 使用的插件
 
-## start server
+[github-api](https://github.com/michael/github)
 
-```
-npm start
-```
 
-## deploy with pm2
+## 如何使用
 
-use pm2 to deploy app on production envrioment.
+1. `npm install`
 
-```
-pm2 startOrReload pm2.json
-```
+2. `npm start`
+
+## 使用 pm2 发布到生产环境
+
+1. `pm2 startOrReload pm2.json`
+
+## 截图
