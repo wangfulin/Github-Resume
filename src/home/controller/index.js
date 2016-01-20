@@ -15,9 +15,11 @@ export default class extends Base {
     let _self = this;
     let username = this.post('username');
     let password = this.post('password');
+    let theme = this.post('theme')
 
     this.assign('username', username);
     this.assign('password', password);
+    this.assign('theme', theme);
 
     await this.getUserInfo(username).then(function(user){
       _self.assign('user', {
@@ -44,17 +46,7 @@ export default class extends Base {
     let _self = this;
 
     await this.getRepoInfo('wangfulin', 'css').then(function(repo){
-      console.log(repo);
-      // _self.assign('user', {
-      //   name: user.name,
-      //   company: user.company,
-      //   email: user.email,
-      //   blog: user.blog,
-      //   followers: user.followers,
-      //   following: user.following,
-      //   joinTime: user.created_at,
-      //   avatarPic: user.avatar_url
-      // });
+      
     },function(err){
       console.log('fail');
     });
@@ -70,7 +62,6 @@ export default class extends Base {
       language: 'js',
       repo: 'jquery/jquery'
     };
-    console.log(opts);
     await this.searchGithub(opts).then(function(res){
       _self.assign('res', res);
       for(let i in res){

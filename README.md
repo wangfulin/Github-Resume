@@ -1,3 +1,7 @@
+## 项目地址：[Github-Helper](https://github.com/wangfulin/Github-Helper)
+
+相信程序员对 Github 都不会陌生，你的 Github 也是自己的简历，在 Github 的贡献越大，对求职的帮助就越大，也能够慢慢增加自己的影响力。这个项目的目的就是根据自己在 Github 的贡献情况生成自己独特的简历。欢迎 fork, 你可以为自己的简历设置自己的样式，也可以进一步加入其它功能。
+
 ## 使用的框架
 
 [Thinkjs](https://github.com/75team/thinkjs)

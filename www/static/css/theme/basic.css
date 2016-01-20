@@ -112,18 +112,24 @@ ul.repo-info-list li span:first-child{
 	padding:0px 10px;
 	font-size:16px;
 	line-height:38px;
+	display:inline-block;
+	height:38px;
+	vertical-align:middle;
 	border:1px solid #ccc;
 }
 ul.repo-info-list li span:last-child{
 	border-bottom-right-radius:5px;
 	border-top-right-radius:5px;
-	padding:10px 5px;
+	padding:0px 5px;
 	font-size:16px;
 	line-height:38px;
 	background-color:white;
 	color:#0767c8;
 	font-weight:bold;
 	border:1px solid #ccc;
+	display:inline-block;
+	height:38px;
+	vertical-align:middle;
 	border-left:none;
 }
 .repository h4{

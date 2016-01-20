@@ -1,7 +1,6 @@
 'use strict';
 import Github from 'github-api'
 import request from 'request'
-import events from 'events'
 
 export default class extends think.controller.base {
 
@@ -20,17 +19,6 @@ export default class extends think.controller.base {
    // 获取某个用户某个仓库提交的commits个数
    async getRepoCommitsCount(username){
       let _self = this;
-      let EventEmitter = events.EventEmitter;
-
-      let body = new EventEmitter();
-
-      // let commitsCountPromise = new Promise(function(){
-      //    this.http.success(function(){
-      //       resolve()
-      //    });
-      // });
-      // console.log(think.http.url);
-      // console.log(think.http.startTime);
       let popularRepos = this.assign('popularRepos');
       let i = 0;
       let commitsCountArr = [];
@@ -163,7 +151,6 @@ export default class extends think.controller.base {
    	let github = this.assign('github');
    	let search;
    	let type = opts.type || 'repositories';
-   	console.log(type);
    	let sort = opts.sort ? opts.sort : null;
    	let order = opts.order ? opts.order : null;
    	let searchPromise ;
