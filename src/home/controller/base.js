@@ -16,6 +16,25 @@ export default class extends think.controller.base {
       }
 	}
 
+   // 获取某个用户加入的组织
+   async getUserOrganizations(){
+      this.createGithub();
+      let github = this.assign('github');
+      let user = github.getUser();
+
+      let orgsPromise = new Promise(function(resolve, reject){
+         user.orgs(function(err, orgs){
+            if(err){
+               reject(err);
+            }else{
+               console.log(orgs);
+               resolve(orgs);
+            }
+         });
+      });
+      return orgsPromise;
+   }
+
    // 获取某个用户某个仓库提交的commits个数
    async getRepoCommitsCount(username){
       let _self = this;
@@ -63,12 +82,12 @@ export default class extends think.controller.base {
             let next_watchers_count = next.watchers_count;
             let next_forks_count = next.forks_count;
 
-            var prev_count = prev_stargazers_count * 1.0 + prev_watchers_count * 1.2 + prev_forks_count * 1.4;
-            var next_count = next_stargazers_count * 1.0 + next_watchers_count * 1.2 + next.forks_count * 1.4;
+            let prev_count = prev_stargazers_count * 1.0 + prev_watchers_count * 1.2 + prev_forks_count * 1.4 + (prev.fork ? 0 : 100);
+            let next_count = next_stargazers_count * 1.0 + next_watchers_count * 1.2 + next.forks_count * 1.4 + (next.fork ? 0 : 100);
 
             return next_count - prev_count;
          });
-         var res = [];
+         let res = [];
          if(repos.length > max){
             for(let i=0; i<max; i++){
                res[i] = repos[i];
@@ -94,6 +113,7 @@ export default class extends think.controller.base {
 
    // 获取用户的所有仓库信息
    async getUserRepos(username){
+      let _self = this;
       this.createGithub();
       let github = this.assign('github');
       let user = github.getUser();
@@ -103,6 +123,20 @@ export default class extends think.controller.base {
             if(err){
                reject(err);
             }else{
+               console.log(repos[0]);
+               let forkCount = 0;
+               let sourceCount = 0;
+               let repoCount = repos.length;
+               for(let i = 0; i < repoCount; i++){
+                  if(repos[i].fork){
+                     forkCount++;
+                  }else{
+                     sourceCount++;
+                  }
+               }
+               _self.assign('forkCount', forkCount);
+               _self.assign('sourceCount', sourceCount);
+               _self.assign('repoCount', repoCount);
                resolve(repos);
             }
          });
@@ -110,7 +144,7 @@ export default class extends think.controller.base {
       return reposPromise;
    }
 
-   // 获取仓库信息
+   // 获取单个仓库信息
    async getRepoInfo(username, reponame){
          this.createGithub();
    		let github = this.assign('github');

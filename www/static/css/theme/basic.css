@@ -158,3 +158,13 @@ ul.repo-info-list li span:last-child{
 	padding-left:10px;
 	padding-top:6px;
 }
+h4{
+	line-height:32px;
+}
+h4>span{
+	background-color:#ddd;
+	border:1px solid #ccc;
+	border-radius:5px;
+	padding:3px 6px;
+	margin:0 4px;
+}

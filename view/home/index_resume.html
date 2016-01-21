@@ -20,7 +20,7 @@
             <li><span class="info-item">用户名:</span> <span class="username"><%=user.name %></span></li>
             <li><span class="info-item">公司:</span> <span class="company"><%=user.company %></span></li>
             <li><span class="info-item">个人博客: </span><span class="blog"><a href=<%=user.blog %> ><%=user.blog %></a></span></li>
-            <li><span class="info-item">加入时间: </span><span class="joinTime"><%=user.joinTime.replace(/T|Z/g, ' ') %></span></li>
+            <li><span class="info-item">电子邮箱: </span><span class="joinTime"><%=user.email %></span></li>
             <li><span class="info-item">关注你的人数: </span><span class="followers"><%=user.followers %></span></li>
             <li><span class="info-item">关注了的人数: </span><span class="following"><%=user.following %></span></li>
           </ul>
@@ -53,6 +53,24 @@
         <% }); %>
       </div>
       <!-- 项目信息结束 -->
+
+      <!-- Github 信息总结开始 -->
+      <div class="summary">
+        <h2 class="summary-title category-title">Github 总结</h2>
+        <h4>
+          <span><%=user.name %></span>在<span><%=user.joinTime.replace(/[TZ]/g, ' '); %></span>加入 Github ，总共有<span><%=repoCount %></span>个 Repository ，自己创建了<span><%=sourceCount %></span>个 Repository ，fork 了<span><%=forkCount %></span>个 Repository.
+        </h4>
+      </div>
+      <!-- Github 信息总结结束 -->
+
+      <!-- 加入的组织开始 -->
+    <!--   <div>
+        <h2>加入的组织</h2>
+        <div>
+          
+        </div>
+      </div> -->
+      <!-- 加入的组织结束 -->
     </div>
   </div>
   <!-- 简历结束 -->
