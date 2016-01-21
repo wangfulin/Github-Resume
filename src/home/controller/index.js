@@ -1,6 +1,7 @@
 'use strict';
 
 import Base from './base.js';
+import Pageres from 'pageres';
 
 export default class extends Base {
   /**
@@ -11,12 +12,22 @@ export default class extends Base {
     return this.display();
   }
 
+  downloadAction(){
+    let dest = think.ROOT_PATH + '/www/static/img/screenshot';
+    let username = this.get('username');
+    let theme = this.get('theme');
+    let pageres = new Pageres({delay: 2})
+    .src('http://127.0.0.1:8360/home/index/resume/username/' + username + '/theme/' + theme, ['1024x1000'])
+    .dest(dest)
+    .run()
+    .then(() => console.log('done'));;
+  }
+
   async resumeAction(){
     let _self = this;
-    let username = this.post('username');
+    let username = this.post('username') || this.get('username');
     let password = this.post('password');
-    let theme = this.post('theme')
-
+    let theme = this.post('theme') || this.get('theme');
     this.assign('username', username);
     this.assign('password', password);
     this.assign('theme', theme);

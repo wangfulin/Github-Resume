@@ -10,7 +10,8 @@
   <div class="container">
     <!-- 简历开始 -->
     <div class="resume">
-      <h1 class="title"><%=user.name %>的Github简历</h1>
+      <h1 class="title"><%=user.name %>的Github简历<span id="download" class="save-as-picture octicon octicon-desktop-download">&nbsp;保存为图片</span></h1>
+      <span style="display:none;" id="username"><%=username %></span><span style="display:none;" id="theme"><%=theme %></span>
       <!-- 基本信息开始 -->
       <div class="basic-info">
         <h2 class="basic-title category-title">基本信息</h2>
@@ -42,7 +43,7 @@
                   <li><span class="repo-info octicon octicon-star-add">&nbsp;star: </span><span><%=repository.stargazers_count %></span></li>
                   <li><span class="repo-info octicon octicon-eye-unwatch">&nbsp;watcher: </span><span><%=repository.watchers_count %></span></li>
                   <li><span class="repo-info octicon octicon-repo-forked">&nbsp;fork: </span><span><%=repository.forks_count %></span></li>
-                  <li><span class="repo-info octicon octicon-git-commit">&nbsp;commits: </span><span><%=commitsCountArr[index] %></span></li>
+                  <li><span class="repo-info octicon octicon-git-commit">&nbsp;commits: </span><span><%=commitsCountObj[repository.name] %></span></li>
                 </ul>
               </p>
               <h4>
@@ -55,6 +56,8 @@
     </div>
   </div>
   <!-- 简历结束 -->
-  <!-- <script src="/static/js/resume_basic.js"></script> -->
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="/static/js/theme_basic.js"></script>
 </body>
 </html>

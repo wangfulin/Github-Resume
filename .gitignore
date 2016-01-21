@@ -1,6 +1,10 @@
 gs
 logs
 *.log
+*.swp
+
+# screenshot
+**/screenshot
 
 # Runtime data
 pids

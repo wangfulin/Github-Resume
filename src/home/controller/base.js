@@ -21,7 +21,7 @@ export default class extends think.controller.base {
       let _self = this;
       let popularRepos = this.assign('popularRepos');
       let i = 0;
-      let commitsCountArr = [];
+      let commitsCountObj = {};
 
       let commitsCountPromise = new Promise(
          function(resolve, reject){
@@ -36,10 +36,10 @@ export default class extends think.controller.base {
                   if(err){
                      reject();
                   }
-                  commitsCountArr.push(JSON.parse(commits).length);
+                  commitsCountObj[repo.name] = JSON.parse(commits).length;
                   i++;
                   if(i === 3){
-                     _self.assign('commitsCountArr', commitsCountArr);
+                     _self.assign('commitsCountObj', commitsCountObj);
                      resolve();
                   }
                });
