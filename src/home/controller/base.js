@@ -27,7 +27,6 @@ export default class extends think.controller.base {
             if(err){
                reject(err);
             }else{
-               console.log(orgs);
                resolve(orgs);
             }
          });
@@ -39,7 +38,6 @@ export default class extends think.controller.base {
    async getRepoCommitsCount(username){
       let _self = this;
       let popularRepos = this.assign('popularRepos');
-      console.log(popularRepos);
       let i = 0;
       let commitsCountObj = {};
 
@@ -124,7 +122,6 @@ export default class extends think.controller.base {
             if(err){
                reject(err);
             }else{
-               console.log(repos[0]);
                let forkCount = 0;
                let sourceCount = 0;
                let repoCount = repos.length;
