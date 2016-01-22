@@ -39,6 +39,7 @@ export default class extends think.controller.base {
    async getRepoCommitsCount(username){
       let _self = this;
       let popularRepos = this.assign('popularRepos');
+      console.log(popularRepos);
       let i = 0;
       let commitsCountObj = {};
 

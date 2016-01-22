@@ -17,7 +17,7 @@ export default class extends Base {
     let username = this.get('username');
     let theme = this.get('theme');
     let pageres = new Pageres({delay: 2, filename: username})
-    .src('http://127.0.0.1:8360/home/index/resume/username/' + username + '/theme/' + theme, ['1024x1000'])
+    .src('http://127.0.0.1:8360/home/index/resume/username/' + username + '/theme/' + theme, ['1024x1150'])
     .dest(dest)
     .run()
     .then(() => console.log('done'));;
