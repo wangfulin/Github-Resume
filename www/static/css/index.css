@@ -51,9 +51,13 @@ ul.theme-list li:hover{
 .basic{
 	background-color:#ccc;
 	color:black;
-	box-shadow:0px 0px 0px 2px grey;
+	box-shadow:1px 1px 0px 2px grey;
 }
 .fancy{
 	background-color:violet;
+	color:white;
+}
+.lushijie{
+	background-color:#575560;
 	color:white;
 }

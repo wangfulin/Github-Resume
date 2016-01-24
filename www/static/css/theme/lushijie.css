@@ -1,0 +1,106 @@
+/* 
+* @Author: lushijie
+* @Date:   2016-01-23 14:37:49
+* @Last Modified by:   lushijie
+* @Last Modified time: 2016-01-24 11:00:48
+*/
+
+/*
+* reset start
+*/
+/* 
+* @Author: lushijie
+* @Date:   2015-11-26 11:39:43
+* @Last Modified by:   lushijie
+* @Last Modified time: 2015-11-26 11:39:46
+*/
+@charset "UTF-8";
+
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*
+* reset end
+*/
+a{
+	text-decoration:none;
+}
+.clearfix{ zoom: 1; }
+.clearfix:after{ content: ','; display: block; clear: both; height: 0; visibility: hidden; }
+html, body{ width: 100%;height:940px;}
+.container{ height: 100%; width: 70%; margin: 0 auto; overflow: hidden; }
+.resume{ height: 100%; zoom: 1; position: relative; background-color: #575560; }
+.resume:after{ content: ','; display: block; clear: both; height: 0; visibility: hidden; }
+
+.title{ height: 90px; text-align: center; line-height: 90px; font-weight: 700; color: #fff; font-size: 32px; background-color: #3BC1E7; }
+.title .save-as-picture{ float: right; font-size: 22px; margin-right: 34px; cursor:pointer; margin-top:30px;display:none;}
+
+.basic-info{ height: 100%; color: #FBEFE3; position: relative; float: right; background-color: #44434B; width: 30%; }
+.basic-info a{ color: #fff; text-decoration: underline; }
+
+.basic-info .personal-avatar{padding-left: 20%;}
+.basic-info .personal-avatar img{ position: absolute; width:60%; border-radius: 1000px; margin-top: 5%; }
+.basic-info .basic-title{ z-index:10;position: absolute; top: 30%; width: 80%; margin-top: 60px; margin-left:10%;font-size: 24px;color: #39C2E6;}
+.basic-info .personal-profile{z-index:1;position:absolute; top: 35%; width: 80%; margin-top: 60px; margin-left:10%;background-color: #504F57;}
+.personal-profile ul{padding: 20px;}
+.personal-profile li{ margin-top: 30px; }
+
+
+.repositories { float: left; width: 70%; }
+.repository-title{color: #39C2E6; font-size: 24px; display: block; text-align: center;margin-top: 20px;}
+.repositories .repository{padding-left: 20px;}
+.repository .repo-info{font-size: 20px;}
+.repository .repo-info-list li span:first-child{color: #fff;font-weight: 500;font-size:16px;}
+.repository .repo-info-list li span:last-child{color: #C0C1BC;padding-left:10px;font-weight:700;}
+.repository h3{margin: 20px 0px;}
+.repository h4{color: #C0C1BC;margin-top: 20px;margin-bottom: 40px;}
+.repository h3 a{color: #3CC2E5;font-size: 24px;}
+
+
+.summary{ float: left; width: 70%; }
+.summary-title{color: #3CC2E5;font-size: 24px;padding: 20px;}
+.summary h4{padding:0 20px; color: #C0C1BC;}
