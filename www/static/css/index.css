@@ -51,7 +51,7 @@ ul.theme-list li:hover{
 .basic{
 	background-color:#ccc;
 	color:black;
-	box-shadow:1px 1px 0px 2px grey;
+	box-shadow:3px 3px 6px 3px grey;
 }
 .fancy{
 	background-color:violet;

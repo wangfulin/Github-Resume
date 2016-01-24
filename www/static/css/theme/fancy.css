@@ -32,17 +32,22 @@ h2{
 	margin-bottom:10px;
 	padding-bottom:10px;
 }
-.save-as-picture{
+h1>.save-as-picture{
 	position:absolute;
+	right: 20px;
+    padding: 6px 8px;
+    top: 8px;
 	font-size:22px;
 	margin-left:60px;
 	border:1px solid #ccc;
 	background-color:rgb(237,206,108);
 	color:black;
 	border-radius:5px;
-	padding:8px 10px;
 	cursor:pointer;
 	display:none;
+}
+h1:hover>.save-as-picture{
+	display:block;
 }
 .basic-info{
 	height:360px;

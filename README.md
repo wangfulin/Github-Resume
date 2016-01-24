@@ -23,10 +23,20 @@
 
 ## 截图
 
-1. 输入 Github 用户名 
+### 输入 Github 用户名 
 
 ![表单](./www/static/img/resume/form.png)
 
-2. 生成 Github 简历
+### 生成 Github 简历
 
-![简历](./www/static/img/resume/resume.png)
+#### 简单版
+
+![简历](./www/static/img/resume/resume-basic.png)
+
+#### 极客版
+
+![简历](./www/static/img/resume/resume-lushijie.png)
+
+#### 炫酷版
+
+![简历](./www/static/img/resume/resume-fancy.png)

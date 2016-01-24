@@ -9,7 +9,7 @@ themeList.onclick = function(eve){
 	for(var i=0; i<len; i++){
 		themes[i].style.boxShadow = 'none';
 	}
-	target.style.boxShadow='1px 1px 0px 2px grey';
+	target.style.boxShadow='3px 3px 6px 3px grey';
 	var themeName = target.getAttribute('name');
 	theme.value = themeName;
 }
