@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>个人简历</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="/static/css/liuchang.css">
+</head>
+<body>
+	<div class="container">
+		<header></header>
+		<div class="content">
+			<div class="face"><img src=<%=user.avatarPic %> ></div>
+			<div class="userinfo">
+				<ul>
+					<li>用户名：<%=user.name %></li>
+					<li>公司：<%=user.company %></li>
+					<li>个人博客：<%=user.blog %></li>
+					<li>加入时间：<%=user.joinTime %></li>
+					<li>关注你的人数：<%=user.followers %></li>
+					<li>你关注的人数：<%=user.following %></li>
+				</ul>
+			</div>
+		</div>
+		<div class="project">
+			<div class="project-img"></div>
+			<ul class="menu">
+				<% popularRepos.forEach(function(repository, index){ %>
+					<li>
+					<h3><%=repository.name%></h3>
+					<ul class="project-info">
+						<li>size : <%=repository.size %></li>
+						<li>star : <%=repository.stargazers_count %></li>
+						<li>watcher : <%=repository.watchers_count %></li>
+						<li>fork : <%=repository.forks_count %></li>
+						<li>commits : <%=commitsCountObj[repository.name] %></li>
+					</ul>
+					<h4>
+						<%=repository.description? repository.description : 'This repository has no description' %>
+					</h4>
+				</li>
+				<% }); %>
+			</ul>
+		</div>
+		<div class="summary">
+			<h2 class="summary-title category-title"><div>总结</div></h2>
+	        <h4>
+	          <span><%=user.name %></span>在<span><%=user.joinTime.replace(/[TZ]/g, ' ') %></span>加入 Github ，总共有<span><%=repoCount %></span>个 Repository ，自己创建了<span><%=sourceCount %></span>个 Repository ，fork 了<span><%=forkCount %></span>个 Repository.
+	        </h4>
+		</div>
+		<footer>
+			
+		</footer>
+	</div>
+</body>
+</html>

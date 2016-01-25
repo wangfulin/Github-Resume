@@ -3,18 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>简历生成表单</title>
+<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon"> 
 <link type="text/css" rel="stylesheet" href="/static/css/index.css" />
 </head>
 <body>
   <div class="container">
     <!-- 提交表单开始-->
-    <form action="/home/index/resume" method="post">
+    <form  id="form" action="/home/index/resume" method="post">
       <input class="field" type="input" placeholder="请输入Github用户名" name="username" />
       <!-- <input class="field" type="password" placeholder="请输入Github密码" name="password" /> -->
       <input type="hidden" name="theme" id="theme" value="basic" />
       <ul class="theme-list" id="theme-list">
         <li name="basic" class="basic">基础版</li>
         <li name="lushijie" class="lushijie">小杰版</li>
+        <li name="liuchang" class="liuchang">畅畅版</li>
+        <li name="jiajia" class="jiajia">佳佳版</li>
         <li name="fancy" class="fancy">炫酷版</li>
       </ul>
       <input class="subBtn" type="submit" value="生成Github简历" />

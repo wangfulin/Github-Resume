@@ -43,7 +43,8 @@ ul.theme-list li{
 	vertical-align:middle;
 	padding:0px 10px;
 	border-radius:5px;
-	margin-right:10px;
+	margin-right:24px;
+	margin-left:8px;
 }
 ul.theme-list li:hover{
 	opacity:.8;
@@ -59,5 +60,13 @@ ul.theme-list li:hover{
 }
 .lushijie{
 	background-color:#575560;
+	color:white;
+}
+.liuchang{
+	background-color:rgb(255,248,96);
+	color:black;
+}
+.jiajia{
+	background-color:rgb(94,51,47);
 	color:white;
 }

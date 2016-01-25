@@ -1,0 +1,143 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+ul li {
+	list-style: none;
+}
+.container {
+	width: 960px;
+	margin: 0 auto;
+}
+header {
+	width: 100%;
+	height: 150px;
+	background: url('../img/liuchang/header.jpg');
+}
+.content {
+	width: 100%;
+	height: 300px;
+	background-color: black;
+	position: relative;
+}
+.content .face {
+	width: 300px;
+	height: 300px;
+	background: url('../img/liuchang/face.jpg'); 
+	position: absolute;
+	left: 50px;
+	top: 50%;
+	margin-top: -150px;
+}
+.content .face img {
+	width: 130px;
+	height: 132px;
+	position: absolute;
+	top: 74px;
+	left: 87px;
+	border-radius: 67px;
+}
+.content .userinfo {
+	float: right;
+	width: 600px;
+	height: 270px;
+	padding-top: 30px;
+	border-left: 2px solid #333;
+}
+.content .userinfo ul {
+	margin-left: 20px;
+}
+.content .userinfo ul li {
+	margin-top: 15px;
+	color: #fff;
+}
+.project {
+	width: auto;
+	height: 100%;
+	background-color: #ffff01;
+	position:relative;
+	z-index:1000;
+}
+.project .project-img {
+	width: 100%;
+	height: 102px;
+	margin: 0 auto;
+	background: url('../img/liuchang/project.jpg') no-repeat;
+}
+.project .menu {
+	margin-bottom: 20px;
+}
+.project .menu .project-info {
+	height: 20px;
+}
+.project .menu .project-info li{
+	float: left;
+	margin-right: 20px;
+}
+.menu h4{
+	width:95%;
+	margin:auto;
+	border-radius:5px;
+	border:1px solid yellow;
+	height:60px;
+	color:black;
+	line-height:30px;
+	padding-left:16px;
+	border:1px solid black;
+}
+
+.repository h4{
+	border:1px solid #ccc;
+	background-color:#ddd;
+	height:80px;
+	border-radius:5px;
+	padding-left:10px;
+	padding-top:6px;
+}
+.summary{
+	background-color:black;
+}
+.summary h2{
+	color:white;
+	text-align:center;
+	margin-top:0px;
+	font-size:16px;
+	color:black;
+	position:relative;
+	padding-bottom:80px;
+	padding-left:10px;
+}
+.summary h2 div{
+	width:140px;
+	height:140px;
+	border-radius:50%;
+	background-color:rgb(255,248,96);
+	position:absolute;
+	line-height:200px;
+	top:-70px;
+	left:0;
+	right:0;
+	margin:auto;
+	vertical-align:text-bottom;
+}
+h4{
+	line-height:32px;
+	color:white;
+	margin:0px;
+}
+h4>span{
+	background-color:darkgrey;
+	border:1px solid #ccc;
+	border-radius:5px;
+	padding:3px 6px;
+	margin:0 4px;
+}
+
+
+footer {
+	width: 100%;
+	height: 100px;
+	background: url('../img/liuchang/footer.jpg');
+	margin-top:-20px;
+}

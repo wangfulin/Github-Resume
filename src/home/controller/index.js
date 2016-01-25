@@ -23,6 +23,39 @@ export default class extends Base {
     .then(() => console.log('done'));;
   }
 
+  // to be updated
+  async liuchangAction(){
+    let _self = this;
+    let username = this.post('username') || this.get('username');
+    let password = this.post('password');
+    let theme = this.post('theme') || this.get('theme');
+    this.assign('username', username);
+    this.assign('password', password);
+    this.assign('theme', theme);
+
+    await this.getUserInfo(username).then(function(user){
+      _self.assign('user', {
+        name: user.name,
+        company: user.company,
+        email: user.email,
+        blog: user.blog,
+        followers: user.followers,
+        following: user.following,
+        joinTime: user.created_at,
+        avatarPic: user.avatar_url
+      });
+    }, function(err){
+      console.log('fail');
+    });
+    //await this.getUserOrganizations();
+
+    await this.getPopularRepositories(username, 3);
+
+    await this.getRepoCommitsCount(username);
+
+    return this.display();
+  }
+
   async resumeAction(){
     let _self = this;
     let username = this.post('username') || this.get('username');
